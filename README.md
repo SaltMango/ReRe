@@ -1,10 +1,10 @@
-# Northstar
+# reRe
 
 **Low-power motorcycle navigation for the Royal Enfield Tripper Dash — with the phone screen off.**
 
-Northstar is an open-source Android app for the **Royal Enfield Himalayan 450**. It projects turn-by-turn navigation onto the bike's round **Tripper TFT dash** without cooking the phone in your tank bag.
+reRe is an open-source Android app for the **Royal Enfield Himalayan 450**. It projects turn-by-turn navigation onto the bike's round **Tripper TFT dash** without cooking the phone in your tank bag.
 
-> ⚠️ Independent, community project. **Not affiliated with, endorsed by, or supported by Royal Enfield.** The dash link is unofficial, so use it at your own risk. To be clear about what that means in practice: Northstar only streams a video feed to the Tripper **display** over Wi-Fi (and reads the joystick) — it never touches the ECU, engine, brakes or anything you ride with, and it can't modify the bike. The realistic worst case is the dash simply doesn't show the stream, or needs a power-cycle. It is validated on the author's firmware (**11.63**); other firmwares may behave differently.
+> ⚠️ Independent, community project. **Not affiliated with, endorsed by, or supported by Royal Enfield.** The dash link is unofficial, so use it at your own risk. To be clear about what that means in practice: reRe only streams a video feed to the Tripper **display** over Wi-Fi (and reads the joystick) — it never touches the ECU, engine, brakes or anything you ride with, and it can't modify the bike. The realistic worst case is the dash simply doesn't show the stream, or needs a power-cycle. It is validated on the author's firmware (**11.63**); other firmwares may behave differently.
 
 ---
 
@@ -12,7 +12,7 @@ Northstar is an open-source Android app for the **Royal Enfield Himalayan 450**.
 
 Mirroring the phone screen to the dash keeps the phone's OLED lit the whole time and streams what's on screen. On a long ride in the sun that overheats the phone and drains the battery fast.
 
-Northstar takes a different approach:
+reRe takes a different approach:
 
 > It renders the map **off-screen**, hardware-encodes it to **H.264**, and streams it to the dash over the bike's WiFi — so the phone screen can stay **completely OFF** the entire ride.
 
@@ -46,7 +46,7 @@ Google Maps share ─▶ route (OSRM) ─▶ off-screen map render (Canvas)
         (K1G control plane over UDP broadcast :2000  ·  RSA-1024 + AES-256 auth)
 ```
 
-The dash speaks a binary Wi-Fi protocol ("K1G"): a stateful RSA/AES handshake, then it decodes an H.264/RTP stream over UDP. Northstar implements the link layer in Kotlin and feeds the dash a map it renders itself — the dash doesn't care what produces the video.
+The dash speaks a binary Wi-Fi protocol ("K1G"): a stateful RSA/AES handshake, then it decodes an H.264/RTP stream over UDP. reRe implements the link layer in Kotlin and feeds the dash a map it renders itself — the dash doesn't care what produces the video.
 
 The link layer uses the open-source [**better-dash**](https://github.com/norbertFeron/better-dash) project (Apache-2.0) as a reference; see [`NOTICE`](NOTICE).
 
@@ -64,7 +64,7 @@ The link layer uses the open-source [**better-dash**](https://github.com/norbert
 
 ## Download
 
-**📦 Grab the latest APK from [Releases](https://github.com/adityadasika21/NorthStar/releases/latest)** and sideload it (you'll need to allow "install unknown apps"). No account or setup required to try it.
+**📦 Grab the latest APK from [Releases](https://github.com/adityadasika21/reRe/releases/latest)** and sideload it (you'll need to allow "install unknown apps"). No account or setup required to try it.
 
 Every release is signed with the same key, so new versions **update in place** — your rides and Garage data are kept (no uninstall needed). The app also **checks for new releases on launch** and offers a one-tap in-app update when one's out.
 
@@ -72,10 +72,10 @@ Every release is signed with the same key, so new versions **update in place** �
 
 ### 🔄 Get update notifications automatically (recommended)
 
-So you never miss an update, install Northstar through **[Obtainium](https://github.com/ImranR98/Obtainium)** — a free app that watches GitHub Releases and notifies you (and one-tap updates) whenever there's a new version:
+So you never miss an update, install reRe through **[Obtainium](https://github.com/ImranR98/Obtainium)** — a free app that watches GitHub Releases and notifies you (and one-tap updates) whenever there's a new version:
 
 1. Install Obtainium.
-2. Add app → paste `https://github.com/adityadasika21/NorthStar`
+2. Add app → paste `https://github.com/adityadasika21/reRe`
 3. It tracks every release from here on — you'll get a notification each time I ship one.
 
 ---
@@ -83,8 +83,8 @@ So you never miss an update, install Northstar through **[Obtainium](https://git
 ## Building it yourself
 
 ```bash
-git clone https://github.com/adityadasika21/NorthStar.git
-cd NorthStar
+git clone https://github.com/adityadasika21/reRe.git
+cd reRe
 ./gradlew :app:assembleDebug
 ```
 
@@ -128,7 +128,7 @@ The dash protocol understanding is cross-checked against the open-source
 [better-dash](https://github.com/norbertFeron/better-dash) project (also Apache-2.0); see `NOTICE`
 for attribution.
 
-**Trademarks / affiliation:** Northstar is an independent community project and is **not affiliated
+**Trademarks / affiliation:** reRe is an independent community project and is **not affiliated
 with, endorsed by, or supported by Royal Enfield**. "Royal Enfield", "Himalayan", and "Tripper" are
 trademarks of their respective owners, used here only descriptively to identify compatible hardware.
 The dash link is unofficial and exists solely for interoperability with hardware you own — use at your own risk.
